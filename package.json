@@ -1,0 +1,27 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mint673/project.git"
+  },
+  "author": "minting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mint673/project/issues"
+  },
+  "homepage": "https://github.com/mint673/project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongodb": "^4.3.0",
+    "mongoose": "^6.1.6",
+    "request": "^2.88.2"
+  }
+}
