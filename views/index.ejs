@@ -34,11 +34,15 @@
                 <li>skiing: beginner</li>
             </ul>
         </div>
-        <% for (let i=0; i<persons.length; i++) { %>
+        <% for (let person of persons) { %>
             <div class="col-lg-3 col-md-4 col-sm-6">  
-                <%= persons[i].name %> 
-                <%= persons[i].contact %>
-                <%= persons[i].sports %>
+                <%= person.name %> 
+                <%= person.contact %>
+                <ul>
+                    <% for (let sport of person.sports) { %>
+                        <li> <%= sport.name %> <%= sport.level %> </li>
+                   <% } %>
+                </ul>
             </div>
         <% } %>
     </div>
@@ -55,7 +59,10 @@
                 </li>
                 <li>
                     <label for="userSports">Sports you play</label> <br>
-                    <textarea name="sports" id="userSports" cols="30" rows="10"></textarea>
+                    <ul id="list-of-sport">
+                        <p id="add-sport-button">add</p>
+                        <li><input type="text" name="sport" value="sport"><input type="text" name="level" value="skill level"></li>
+                    </ul>
                 </li>
             </ul>
             <button type="submit">Submit</button>
@@ -63,6 +70,6 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="ejs.js"></script>
+    <script src="/js.js"></script>
 </body>
 </html>

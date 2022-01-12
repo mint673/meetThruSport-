@@ -18,7 +18,10 @@ mongoose.connect('mongodb://127.0.0.1/db', {useNewUrlParser: true});
 const personSchema = new mongoose.Schema({
     name: String,
     contact: String,
-    sports: String
+    sports: [{
+        name: String,
+        level: String
+    }]
 });
   
 const Person = mongoose.model('Person', personSchema);
@@ -29,18 +32,24 @@ app.get('/', (req, res) => {
     Person.find({}, function(err, people){
         listOfPerson = people;
         res.render('index.ejs', {persons: listOfPerson});
-        console.log(listOfPerson);
     })
 })
 
 // create a user
 app.post('/', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
+    let sportsEntered = req.body.sport;
+    let levelsEntered = req.body.level;
+    let sportsList = [];
+    for (i=0; i<sportsEntered.length; i++) {
+        sportsList.push({name: sportsEntered[i], level: levelsEntered[i]});
+    }
     const person = new Person({ 
         name: req.body.name,
         contact: req.body.contact,
-        sports: req.body.sports
+        sports: sportsList
     });
+    // console.log(person);
     Person.insertMany([person]);
     res.redirect('/');
 })
