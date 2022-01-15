@@ -9,10 +9,10 @@
   
 </head>
 <body>
-    <form>
+    <form action="/search" method="post">
         <div>Enter the name of the sport and find people at a similar level to play together!</div>
-        <input type="text" name="" id="search">
-        <button>Check who play this sport!</button>
+        <input type="text" name="searchInput" id="search" autocomplete="off">
+        <button type="submit">Check who play this sport!</button>
     </form>
 
     <div class="row">
@@ -62,9 +62,8 @@
                     <label for="userSports">Sports you play</label> <br>
                     <ul id="list-of-sport">
                         <p id="add-sport-button">add</p>
-                        <li><input type="text" name="sport" class="autoComplete" value="sport" autocomplete="off">
+                        <li><input type="text" name="sport" id="sport1" autocomplete="off">
                             <input type="text" name="level" value="skill level"> 
-                            <div class="remove-sport-btn">remove</div>
                         </li>
                     </ul>
                 </li>

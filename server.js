@@ -25,7 +25,7 @@ const personSchema = new mongoose.Schema({
 });
   
 const Person = mongoose.model('Person', personSchema);
-let listOfPerson;
+let listOfPerson = [];
 
 // home page
 app.get('/', (req, res) => {
@@ -54,7 +54,57 @@ app.post('/', (req, res) => {
     res.redirect('/');
 })
 
+app.post('/search', (req, res) => {
+    let results = [];
+    Person.find({}, function(err, people){
+        listOfPerson = people;
+    });
+    console.log("list1" + listOfPerson);
+    let sport = req.body.searchInput;
+        console.log(listOfPerson);
+        for (let person of listOfPerson) {
+            console.log("person: " + person.sports);
+            if (plays(person, sport)) {
+                results.push(person);
+            }
+        }
+        console.log("results: " + results);
+        res.render('index.ejs', {persons: results});
+    /*try {
+        let sport = req.body.searchInput;
+        console.log(listOfPerson);
+        for (let person of listOfPerson) {
+            console.log("person: " + person.sports);
+            if (plays(person, sport)) {
+                results.push(person);
+            }
+        }
+        console.log("results: " + results);
+        res.render('index.ejs', {persons: results});
+    } catch (err) {
+        res.render('index.ejs', {persons: results});
+    }*/
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 })
 
+//------------------HELPERS-------------------
+function plays(person, sport) {
+    if (contains(person.sports, sport)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function contains(sports, sport) {
+    for (let sportObj of sports) {
+        if (sportObj.name == sport) {
+            return true;
+        }
+    }
+
+    return false;
+}

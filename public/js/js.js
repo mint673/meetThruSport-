@@ -8,49 +8,42 @@ addSportButton.onclick = (ev => {
     numSports++;
     let sportField = document.createElement('li');
     sportField.innerHTML = 
-    '<li><input type="text" name="sport" value="sport"> <input type="text" name="level" value="skill level">\n <div class="remove-sport-btn">remove</div>';
+    `<input type="text" name="sport" id="sport${numSports}"> <input type="text" name="level" value="skill level"> <div id="remove-sport${numSports}">remove</div>`;
     listOfSport.appendChild(sportField);
+    addAutocomplete(`#sport${numSports}`, "name of sport");
+
+    // add js to the remove button
+    let removeBtn = document.getElementById(`remove-sport${numSports}`);
+    removeBtn.onclick = ( ev => {
+        ev.target.parentNode.parentNode.removeChild( ev.target.parentNode );
+    })
 })
 
+// add autocomplete to search bar and first sport input
+addAutocomplete("#search", "Enter the name of the sport...");
+addAutocomplete("#sport1", "name of sport");
 
-// auto-complete
-let autocomSearchbar = new autoComplete({
-    selector: ".autoComplete",
-    placeHolder: "Search for Food...",
-    data: {
-        src: suggestions.sort(),
-        cache: true,
-    },
-    resultItem: {
-        highlight: true
-    },
-    events: {
-        input: {
-            selection: (event) => {
-                const selection = event.detail.selection.value;
-                autoCompleteJS.input.value = selection;
+function addAutocomplete(sel, defaultText){
+
+    let autocom = new autoComplete({
+        selector: sel,
+        placeHolder: defaultText,
+        data: {
+            src: suggestions.sort(),
+            cache: true,
+        },
+        resultItem: {
+            highlight: true
+        },
+        events: {
+            input: {
+                selection: (event) => {
+                    const selection = event.detail.selection.value;
+                    autocom.input.value = selection;
+                }
             }
         }
-    }
-});
+    })
 
-let autocomSport = new autoComplete({
-    selector: "#search",
-    placeHolder: "Search for Food...",
-    data: {
-        src: suggestions.sort(),
-        cache: true,
-    },
-    resultItem: {
-        highlight: true
-    },
-    events: {
-        input: {
-            selection: (event) => {
-                const selection = event.detail.selection.value;
-                autoCompleteJS.input.value = selection;
-            }
-        }
-    }
-});
-
+    return autocom;
+};
