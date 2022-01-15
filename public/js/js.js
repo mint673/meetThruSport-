@@ -12,8 +12,10 @@ addSportButton.onclick = (ev => {
     listOfSport.appendChild(sportField);
 })
 
+
 // auto-complete
-const autoCompleteJS = new autoComplete({
+let autocomSearchbar = new autoComplete({
+    selector: ".autoComplete",
     placeHolder: "Search for Food...",
     data: {
         src: suggestions.sort(),
@@ -31,3 +33,24 @@ const autoCompleteJS = new autoComplete({
         }
     }
 });
+
+let autocomSport = new autoComplete({
+    selector: "#search",
+    placeHolder: "Search for Food...",
+    data: {
+        src: suggestions.sort(),
+        cache: true,
+    },
+    resultItem: {
+        highlight: true
+    },
+    events: {
+        input: {
+            selection: (event) => {
+                const selection = event.detail.selection.value;
+                autoCompleteJS.input.value = selection;
+            }
+        }
+    }
+});
+
