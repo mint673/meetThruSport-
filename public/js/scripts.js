@@ -6,11 +6,22 @@ const listOfSport = document.getElementById("list-of-sport");
 let numSports = 1;
 addSportButton.onclick = (ev => {
     numSports++;
+    /*
     let sportField = document.createElement('li');
     sportField.innerHTML = 
     `<input type="text" name="sport" id="sport${numSports}"> <input type="text" name="level" value="skill level"> <span id="remove-sport${numSports}" class="btn btn-outline-secondary btn-sm" id="add-sport-button">remove</span>`;
     listOfSport.appendChild(sportField);
+    */
+    $('#list-of-sport').append(
+        `<li class="input-group">
+            <input class="form-control" type="text" name="sport" id="sport${numSports}" autocomplete="off">
+            <input class="form-control" type="text" name="level" placeholder="describe your skill level and preferences when looking for sportmate"> 
+            <span id="remove-sport${numSports}" class="btn btn-outline-secondary" id="add-sport-button">remove</span>
+        </li>`
+    );
     addAutocomplete(`#sport${numSports}`, "name of sport");
+
+    
 
     // add js to the remove button
     let removeBtn = document.getElementById(`remove-sport${numSports}`);

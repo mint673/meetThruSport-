@@ -9,40 +9,48 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div id="searchWrapper">
-        <h1 id="searchText">Looking for people to play a sport with? </h1>
-        <h6>Enter the name of the sport and find people at your similar level to play together!</h6>
-        <form action="/search" method="post" id="searchBar">
-            <input class="form-control" type="text" name="searchInput" id="search" autocomplete="off">
-            <button class="btn btn-primary" id="searchBtn" type="submit">Check who play this sport!</button>
-        </form>
-    </div>
-    
-    <div class="mid-container">
-        <div id="page-content" class="row"></div>
-    <div id="pagination-bar" class="pagination-sm"></div>
+    <div id="topWrapper">
+        <div id="searchWrapper">
+            <h1 id="searchText" onclick="location.href='/';">Looking for people to play a sport with?</h1>
+            <h6>Enter the name of the sport and find people at your similar level to play together!</h6>
+            <form action="/search" method="post" id="searchBar">
+                <input class="form-control" type="text" name="searchInput" id="search" autocomplete="off">
+                <button class="btn btn-primary" id="searchBtn" type="submit">Check who play this sport!</button>
+            </form>
+        </div>
+        
+        
+        <div class="mid-container">
+            <div id="page-content" class="row"></div>
+        <div id="pagination-bar" class="pagination-sm"></div>
+        </div>
     </div>
 
-    <div class="bot-wrapper row">
+    <div class="bot-wrapper row bg-dark text-light">
         <div class="col-lg-8 col-md-10 col-sm-10 form-card">
-            <h3>Enter your information below so that other people can find and contact you!</h3>
+            <h3>Post your information so that other people can contact you!</h3>
             <form action="/" method="post">
                 
-                    <div><label class="form-label" for="userName">Name</label> <input type="text" name="name" class="form-control" id="userName"></div>
-                    <div>
+                    <div class="form-group"><label class="form-label" for="userName">Name</label> <input type="text" name="name" class="form-control" id="userName"></div>
+                    <!--<div class="form-group">
+                        <label class="form-label" for="userProfilePic">Upload a picture of yourself (optional)</label>
+                        <input type="file" class="form-control" name="profilePic" id="userProfilePic">
+                    </div>-->
+                    <div class="form-group">
                         <label class="form-label" for="userContact">Contact Info & Social Media</label> <br>
                         <textarea class="form-control" name="contact" id="" cols="20" rows="10"></textarea>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label class="form-label" for="userInfo">Brief self-introduction and other information you wish to include</label> <br>
                         <textarea class="form-control" name="info" id="userInfo" cols="30" rows="10"></textarea>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label class="form-label" for="userSports">Sports you play</label> <br>
                         <ul id="list-of-sport">
                             <span class="btn btn-outline-secondary btn-sm" id="add-sport-button">add</span>
-                            <li><input class="form-control" type="text" name="sport" id="sport1" autocomplete="off">
-                                <input class="form-control" type="text" name="level" value="skill level"> 
+                            <li class="input-group">
+                                <input class="form-control" type="text" name="sport" id="sport1" autocomplete="off">
+                                <input class="form-control" type="text" name="level" placeholder="describe your skill level and preferences when looking for sportmate"> 
                             </li>
                         </ul>
                     </div>

@@ -65,17 +65,17 @@ app.post('/search', (req, res) => {
     Person.find({}, function(err, people){
         listOfPerson = people;
     });
-    console.log("list1" + listOfPerson);
     let sport = req.body.searchInput;
-        console.log(listOfPerson);
+    if (sport == "") {
+        res.redirect('/');
+    } else {
         for (let person of listOfPerson) {
-            console.log("person: " + person.sports);
             if (plays(person, sport)) {
                 results.push(person);
             }
         }
-        console.log("results: " + results);
         res.render('index.ejs', {persons: results});
+    }
     /*try {
         let sport = req.body.searchInput;
         console.log(listOfPerson);
