@@ -18,6 +18,7 @@ mongoose.connect('mongodb://127.0.0.1/db', {useNewUrlParser: true});
 const personSchema = new mongoose.Schema({
     name: String,
     contact: String,
+    info: String,
     sports: [{
         name: String,
         level: String
@@ -41,12 +42,17 @@ app.post('/', (req, res) => {
     let sportsEntered = req.body.sport;
     let levelsEntered = req.body.level;
     let sportsList = [];
-    for (i=0; i<sportsEntered.length; i++) {
-        sportsList.push({name: sportsEntered[i], level: levelsEntered[i]});
+    if (Array.isArray(sportsEntered)) {
+        for (i=0; i<sportsEntered.length; i++) {
+            sportsList.push({name: sportsEntered[i], level: levelsEntered[i]});
+        }
+    } else {
+        sportsList.push({name: sportsEntered, level: levelsEntered});
     }
     const person = new Person({ 
         name: req.body.name,
         contact: req.body.contact,
+        info: req.body.info,
         sports: sportsList
     });
     // console.log(person);

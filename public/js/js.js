@@ -8,7 +8,7 @@ addSportButton.onclick = (ev => {
     numSports++;
     let sportField = document.createElement('li');
     sportField.innerHTML = 
-    `<input type="text" name="sport" id="sport${numSports}"> <input type="text" name="level" value="skill level"> <div id="remove-sport${numSports}">remove</div>`;
+    `<input type="text" name="sport" id="sport${numSports}"> <input type="text" name="level" value="skill level"> <span id="remove-sport${numSports}" class="btn btn-outline-secondary btn-sm" id="add-sport-button">remove</span>`;
     listOfSport.appendChild(sportField);
     addAutocomplete(`#sport${numSports}`, "name of sport");
 
@@ -20,7 +20,7 @@ addSportButton.onclick = (ev => {
 })
 
 // add autocomplete to search bar and first sport input
-addAutocomplete("#search", "Enter the name of the sport...");
+addAutocomplete("#search", "eg.badminton");
 addAutocomplete("#sport1", "name of sport");
 
 function addAutocomplete(sel, defaultText){
