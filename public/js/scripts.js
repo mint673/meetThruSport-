@@ -33,7 +33,11 @@ function addAutocomplete(sel, defaultText){
             cache: true,
         },
         resultItem: {
-            highlight: true
+            highlight: true,
+            class: 'dropdown-item'
+        },
+        resultsList: {
+            class: 'dropdown-menu'
         },
         events: {
             input: {
@@ -47,3 +51,4 @@ function addAutocomplete(sel, defaultText){
 
     return autocom;
 };
+

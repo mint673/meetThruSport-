@@ -20,7 +20,7 @@ textarea{
     display: inline-block;
 }
 
-.grid-wrapper{
+.card-wrapper{
     padding: 1rem;
 }
 
@@ -48,10 +48,23 @@ textarea{
 }
 
 #searchBar{
-    display: inline-block;
+    display: flex;
     margin-block-end: 0rem;
 }
 
 .badge, .level{
     font-size: 0.75rem;
+}
+
+.btn{
+    align-self: flex-start;
+}
+
+.dropdown-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+#page-content{
+    min-height: 30rem;
 }
