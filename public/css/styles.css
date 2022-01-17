@@ -16,6 +16,14 @@ textarea{
     height: 5rem;
 }
 
+
+ul{
+    padding:0;
+    margin: 0;
+    text-align: left;
+    list-style-type: none;
+}
+
 .mid-container{
     padding-left: 4rem;
     padding-right: 4rem;
