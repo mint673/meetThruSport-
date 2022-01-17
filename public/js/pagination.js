@@ -6,7 +6,7 @@ let numPages = Math.floor((people.length - 1) / resultsPerPage) + 1;
 
 $('#pagination-bar').twbsPagination({
     totalPages: Math.max(numPages,1),
-    visiblePages: Math.min(1, numPages, 3),
+    visiblePages: Math.min(numPages, 3),
     initiateStartPageClick: true,
     onPageClick: function (event, page) {
         document.getElementById('page-content').innerHTML = "<span></span>";

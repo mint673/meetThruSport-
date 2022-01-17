@@ -1,6 +1,6 @@
 
 #topWrapper{
-    background-image: url("/images/volleyball.jpg");
+    background-image: url("/images/bike.jpg");
     background-position: center center;
     background-position: top 10rem;
     background-size: cover;
@@ -45,6 +45,7 @@ textarea{
 
 .card-text{
     max-height: 15em;
+    font-weight: 500;
 }
 
 #searchWrapper{
@@ -95,4 +96,16 @@ textarea{
 
 .pagination{
     margin: 0;
+}
+
+.page-item.disabled .page-link{
+    background-color: rgb(248,249,250,0);
+    color: white;
+}
+
+.page-link, .disabled, .prev, .next, .first, .last{
+    background-color: rgb(248,249,250,0);
+    font-weight: bold;
+    color: white;
+    border: transparent;
 }

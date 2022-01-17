@@ -16,7 +16,7 @@ addSportButton.onclick = (ev => {
         `<li class="input-group">
             <input class="form-control" type="text" name="sport" id="sport${numSports}" autocomplete="off">
             <input class="form-control" type="text" name="level" placeholder="describe your skill level and preferences when looking for sportmate"> 
-            <span id="remove-sport${numSports}" class="btn btn-outline-secondary" id="add-sport-button">remove</span>
+            <span id="remove-sport${numSports}" class="btn btn-outline-light" id="add-sport-button">remove</span>
         </li>`
     );
     addAutocomplete(`#sport${numSports}`, "name of sport");

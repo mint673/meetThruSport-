@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(parser.urlencoded({extended: true}));
 
 // connect to mongo
-mongoose.connect('mongodb://127.0.0.1/db', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://mint:e23ewqr2qwe@cluster0.xalsi.mongodb.net/sportPeopleDB', {useNewUrlParser: true});
 
 // set up person model
 // !!! add photo
